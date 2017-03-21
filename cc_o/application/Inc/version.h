@@ -1,0 +1,5 @@
+#ifndef __VERSION_H__
+#define __VERSION_H__
+#define BOOTLOADER_VERSION_STRING "00.02.03"
+#define MAINIMAGE_VERSION_STRING "00.02.01"
+#endif

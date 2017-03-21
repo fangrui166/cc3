@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>充电协议</title>
+<!-- 2016-08-17 Wed 11:21 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="dzh" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">充电协议</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 协议说明</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 字段说明</a></li>
+<li><a href="#sec-1-2">1.2. Http说明</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1. http header</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">1.3. 设备指令</a>
+<ul>
+<li><a href="#sec-1-3-1">1.3.1. 通用功能 0x0001-0x00FF</a></li>
+<li><a href="#sec-1-3-2">1.3.2. 充电设备 0x0101-0x01FF</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-4">1.4. rspCode</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. 协议定义</a>
+<ul>
+<li><a href="#sec-2-1">2.1. 开机 http post /dev/init/start</a></li>
+<li><a href="#sec-2-2">2.2. 关机 http post /dev/init/stop</a></li>
+<li><a href="#sec-2-3">2.3. OTA升级通知 mtqq</a></li>
+<li><a href="#sec-2-4">2.4. 获取OTA升级地址 http post /dev/ota/upgurl 废弃不用</a></li>
+<li><a href="#sec-2-5">2.5. 开始充电 mqtt</a></li>
+<li><a href="#sec-2-6">2.6. 停止充电 http post /dev/charge/stop</a></li>
+<li><a href="#sec-2-7">2.7. 停止充电 mqtt</a></li>
+<li><a href="#sec-2-8">2.8. 异常 http post /dev/info/err</a></li>
+<li><a href="#sec-2-9">2.9. 充电度数 http post /dev/charge/degree</a></li>
+<li><a href="#sec-2-10">2.10. 设备心跳 http post /dev/io/ping</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 协议说明</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 字段说明</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>必要字段名以"*"标识,
+</li>
+<li>非业务字段以"_"开始
+</li>
+<li>数据发送 json -&gt; <a href="http://msgpack.org/">msgpack</a>(压缩), 数据接收 msgpack(解压) -&gt; json
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Http说明</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> http header</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li>Api-Vern 接口版本，默认1.0.0
+</li>
+<li>Content-Type application/json
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 设备指令</h3>
+<div class="outline-text-3" id="text-1-3">
+</div><div id="outline-container-sec-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> 通用功能 0x0001-0x00FF</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li>升级通知  0x0001
+</li>
+<li>启动     0x0002
+</li>
+<li>停止     0x0003
+</li>
+<li>重启     0x0004
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> 充电设备 0x0101-0x01FF</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<ul class="org-ul">
+<li>充电     0x0101
+</li>
+<li>断电     0x0102
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> rspCode</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>0 成功
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 协议定义</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 开机 http post /dev/init/start</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+设备启动时通知服务器
+</p>
+<ul class="org-ul">
+<li>req
+</li>
+</ul>
+<pre class="example">
+{ 
+    id*: 设备唯一标识,
+    fmwManu*: 设备厂商 如YYDZ-友友电桩 TODO 是否需要上传
+    fmwModl*: 固件类型 如cc_c,cc_i,cc_o TODO 是否需要上传
+    fmwVern*: 固件版本 如1_0_0
+}
+</pre>
+<ul class="org-ul">
+<li>rsp
+</li>
+</ul>
+<pre class="example">
+{
+    rspCode*: 响应码 0-成功
+    rspDesc: 响应描述
+    mq: {
+        uri: mq地址 TODO 集群
+        subTopic: [/dev/ota/fmw_no,/dev/ins/clientId] #订阅主题 ota-升级通知 ins-设备指令
+        clientId: mq的客户端标识
+    }
+    ping: 60  心跳间隔时间，单位秒
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 关机 http post /dev/init/stop</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+设备关闭时通知服务器
+</p>
+<ul class="org-ul">
+<li>req
+</li>
+</ul>
+<pre class="example">
+{ 
+    id*: 设备唯一标识
+}
+</pre>
+<ul class="org-ul">
+<li>rsp
+</li>
+</ul>
+<pre class="example">
+{
+    rspCode*: 响应码 00-成功
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> OTA升级通知 mtqq</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+服务器通知新固件可升级，设备先判断指令，再依据url验证是否符合自己的固件
+</p>
+<ul class="org-ul">
+<li>s2c
+</li>
+</ul>
+<pre class="example">
+{
+    url*: 升级地址
+    ins: 0x0001
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 获取OTA升级地址 http post /dev/ota/upgurl 废弃不用</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+设备知道可以升级后，获取下载地址
+</p>
+<ul class="org-ul">
+<li>req
+</li>
+</ul>
+<pre class="example">
+{ 
+    _v: 接口版本, 默认1_0_0
+    id*: 设备唯一标识
+}
+</pre>
+<ul class="org-ul">
+<li>rsp
+</li>
+</ul>
+<pre class="example">
+{
+    rspCode*: 响应码 00-成功 TODO 异常处理和重试机制
+    url*: 升级地址 如http://ota.ev.com/YYDZ_cc_c_1_2_0.gz
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 开始充电 mqtt</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+服务器通知设备开始充电
+</p>
+<ul class="org-ul">
+<li>s2c
+</li>
+</ul>
+<pre class="example">
+{   
+    ins*: 0x0101
+    id*:  插座ID
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 停止充电 http post /dev/charge/stop</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+设备通知服务器停止充电
+</p>
+<ul class="org-ul">
+<li>req
+</li>
+</ul>
+<pre class="example">
+{ 
+    _v: 接口版本, 默认1_0_0
+    id*: 插座ID
+}
+</pre>
+<ul class="org-ul">
+<li>rsp
+</li>
+</ul>
+<pre class="example">
+{
+    rspCode*: 响应码 00-成功
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 停止充电 mqtt</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+服务器通知设备停止充电
+</p>
+<ul class="org-ul">
+<li>s2c
+</li>
+</ul>
+<pre class="example">
+{ 
+    ins: 0x0102
+    id*:  插座ID
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 异常 http post /dev/info/err</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+设备通知异常给服务器
+</p>
+<ul class="org-ul">
+<li>req
+</li>
+</ul>
+<pre class="example">
+{ 
+    id*: 设备ID
+    errCode*: 错误码
+    errDesc: 错误描述
+}
+</pre>
+<ul class="org-ul">
+<li>rsp
+</li>
+</ul>
+<pre class="example">
+{
+    rspCode*: 响应码 0-成功
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-9" class="outline-3">
+<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 充电度数 http post /dev/charge/degree</h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+设备上传充电度数 
+</p>
+<ul class="org-ul">
+<li>req
+</li>
+</ul>
+<pre class="example">
+{ 
+    id*: 插座ID
+    degree*: 充电度数
+}
+</pre>
+<ul class="org-ul">
+<li>rsp
+</li>
+</ul>
+<pre class="example">
+{
+    rspCode*: 响应码 0-成功
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-10" class="outline-3">
+<h3 id="sec-2-10"><span class="section-number-3">2.10</span> 设备心跳 http post /dev/io/ping</h3>
+<div class="outline-text-3" id="text-2-10">
+<p>
+设备心跳,间隔时间由start获取
+</p>
+<ul class="org-ul">
+<li>req
+</li>
+</ul>
+<pre class="example">
+{ 
+    id*: 设备ID
+}
+</pre>
+<ul class="org-ul">
+<li>rsp
+</li>
+</ul>
+<pre class="example">
+{
+    rspCode*: 响应码 0-成功
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: dzh</p>
+<p class="date">Created: 2016-08-17 Wed 11:21</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
